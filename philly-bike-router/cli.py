@@ -9,11 +9,12 @@ def main():
     data = json.loads(r.content)
 
     for station in data['features']:
-        if (station['properties']['docksAvailable'] < 3 and
-           station['properties']['docksAvailable'] > 0):
-            print("%s is nearly full - %d spaces left" %
-                  (station['properties']['name'].strip(),
-                   station['properties']['docksAvailable']))
+        spaces = station['properties']['docksAvailable']
+        name = station['properties']['name'].strip()
+        if spaces == 0:
+            print("%s is full" % name)
+        elif spaces < 3:
+            print("%s is nearly full - %d spaces left" % (name, spaces))
 
 if __name__ == "__main__":
     main()
