@@ -14,7 +14,8 @@ def main():
         if spaces == 0:
             print("%s is full" % name)
         elif spaces < 3:
-            print("%s is nearly full - %d spaces left" % (name, spaces))
+            plural = "space" if spaces == 1 else "spaces"
+            print("%s is nearly full - %d %s left" % (name, spaces, plural))
 
 if __name__ == "__main__":
     main()
