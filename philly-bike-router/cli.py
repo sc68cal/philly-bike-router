@@ -9,7 +9,8 @@ def main():
     data = json.loads(r.content)
 
     for station in data['features']:
-        if station['properties']['docksAvailable'] < 3:
+        if (station['properties']['docksAvailable'] < 3 and
+           station['properties']['docksAvailable'] > 0):
             print("%s is nearly full - %d spaces left" %
                   (station['properties']['name'].strip(),
                    station['properties']['docksAvailable']))
