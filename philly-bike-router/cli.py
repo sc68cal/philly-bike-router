@@ -16,6 +16,8 @@ def main():
         elif spaces < 3:
             plural = "space" if spaces == 1 else "spaces"
             print("%s is nearly full - %d %s left" % (name, spaces, plural))
+        if not station['properties']['bikesAvailable']:
+            print("%s has no bikes" % name)
 
 if __name__ == "__main__":
     main()
